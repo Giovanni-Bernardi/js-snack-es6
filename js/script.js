@@ -38,7 +38,14 @@ function exercise1() {
 
 //--------------------------------------------------------------//
 
-//ESERCIZIO2
+//EXERCISE2
+
+function getRandomValue(min, max) {
+    const localMin = min;
+    const localMax = max - min + 1;
+    return Math.floor(Math.random() * localMax) + localMin;
+}
+
 function exercise2() {
     // Creare un array di oggetti di squadre di calcio. 
     // Ogni squadra avrà diverse proprietà: 
@@ -68,17 +75,40 @@ function exercise2() {
             'fouls': 0
         }
     ];                      
-    console.log(teams);     //EXPECTED LOG
-                            //0: {name: "Lucchese", score: 0, fouls: 0}
-                            //1: {name: "Civitavecchia", score: 0, fouls: 0}
-                            //2: {name: "Pistoiese", score: 0, fouls: 0}
-                            //3: {name: "TeamOlesto", score: 0, fouls: 0}
+    
+
+
+    // Generare numeri random al posto degli 0 nelle proprietà:
+    // punti fatti e falli subiti    
+    for (let i=0;i<teams.length;i++) {
+        const team = teams[i];
+        
+        team['score'] = getRandomValue(0, 50);
+        team['fouls'] = getRandomValue(0, 50);
+    }
+
+    // Usando la destrutturazione creiamo un nuovo array 
+    // i cui elementi contengono solo nomi e falli subiti 
+    // e stampiamo tutto in console.
+    const resArr = [];
+    for (let i=0;i<teams.length;i++) {
+
+        const team = teams[i];
+
+        let { score, fouls } = team;
+        let resObj = { score, fouls };
+
+        resArr.push(resObj);
+    }
+    console.log(teams, resArr);
 }
+
+
 
 //FUNCTIONS INIT
 function init() {
     //exercise1();
-    exercise2()
+    exercise2();
 }
 
 // JQUERY
