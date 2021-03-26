@@ -1,0 +1,18 @@
+/* GENERAL RULES */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .container{
+    background-color: rgb(255, 81, 0);
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    height: 100vh;
+  }
+
+  .row{
+    margin: auto;
+  }
