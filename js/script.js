@@ -103,13 +103,49 @@ function exercise2() {
     console.log(teams, resArr);
 }
 
+//--------------------------------------------------------------------------------------------//
+
+//EXERCISE3
+
+// Scrivere una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b). 
+// La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri.
+// Usiamo i nuovi metodi degli array foreach o filter.
+
+function arrayFilter(array, start, finish) {
 
 
-//FUNCTIONS INIT
-function init() {
-    //exercise1();
-    exercise2();
+//FOR EACH VERSION
+
+    const filteredArray = [];
+    array.forEach((elem, index) => {
+
+        if ((index >= start) && (index <= finish)) 
+            filteredArray.push(elem)
+    });
+
+    return filteredArray;
 }
+
+function exercise3() {
+
+    const array = [ 1, 2, 3, 4, 5, 6, 7, 8 ];
+    let startIndex = parseInt(prompt("Choose the starting index"));
+    let finishIndex = parseInt(prompt("Choose the ending index"));
+
+    const filteredArray = arrayFilter(array, startIndex, finishIndex);
+
+    console.log(filteredArray);   
+}
+
+function init() {
+
+    // exercise1();
+    // exercise;
+    exercise3();
+}
+
+document.addEventListener("DOMContentLoaded", init());
+
 
 // JQUERY
 $(document).ready(init);
